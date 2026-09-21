@@ -60,6 +60,16 @@ header .btn{padding:12px 20px}
 blockquote{margin:28px 0;padding-left:20px;border-left:1px solid var(--gold);font-family:var(--serif);font-size:30px;line-height:1.2;font-style:italic}
 blockquote cite{display:block;font:600 12px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:10px;font-style:normal}
 
+/* services, igm, recipes */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+.card{background:var(--white);border:1px solid var(--sand);padding:36px;display:flex;flex-direction:column;align-items:flex-start}
+.card p{flex:1}
+.card .label{margin:8px 0 20px}
+#igotmore .logo img{width:100%;max-width:420px;aspect-ratio:auto;margin:0 auto}
+#igotmore .logo{text-align:center}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.row3 img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+
 /* footer */
 footer{background:var(--ink);color:var(--cream);padding:56px 0 32px}
 footer .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
@@ -131,9 +141,68 @@ footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
     </div>
   </div>
 </section>
-<section id="services" class="band"><div class="wrap"><h2>Services</h2></div></section>
-<section id="igotmore"><div class="wrap"><h2>I Got More Co.</h2></div></section>
-<section id="recipes" class="band"><div class="wrap"><h2>Recipes</h2></div></section>
+<section id="services" class="band">
+  <div class="wrap">
+    <span class="label">Services</span>
+    <h2>The same system I built for the pros.<br>Sized for you.</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>1:1 Performance Nutrition</h3>
+        <p>Fuel, recovery, body composition and travel eating — a plan built around your season, your schedule and your kitchen.</p>
+        <span class="label">For athletes and driven people</span>
+        <a class="btn" href="#contact">Inquire</a>
+      </article>
+      <article class="card">
+        <h3>Team &amp; Organization Consulting</h3>
+        <p>Menus, staffing, kitchen design and player education. I launched a visiting-team hospitality program that generated $170K+ in its first year, and designed the kitchen for an NHL practice facility.</p>
+        <span class="label">For pro &amp; college teams, facilities</span>
+        <a class="btn" href="#contact">Inquire</a>
+      </article>
+      <article class="card">
+        <h3>Speaking &amp; Workshops</h3>
+        <p>Keynote speaker at the inaugural Performance Chef Summit in New Orleans. Culinary Nutrition Workshops for staff, teams and companies.</p>
+        <span class="label">For events, teams, companies</span>
+        <a class="btn" href="#contact">Inquire</a>
+      </article>
+      <article class="card">
+        <h3>Recipes &amp; Meal Plans</h3>
+        <p>What's in every pro's fridge, and how to cook it. Recipes and weekly plans that hold up on a Tuesday night.</p>
+        <span class="label">For everyone</span>
+        <a class="btn" href="#recipes">See Recipes</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="igotmore">
+  <div class="wrap grid2">
+    <div class="logo">
+      <img src="assets/brand/igotmore-script-tagline.jpg" alt="I Got More Co.">
+      <span class="placeholder">[PLACEHOLDER — real logo files from Anthony]</span>
+    </div>
+    <div>
+      <span class="label">I Got More Co.</span>
+      <h2>Built for those who don't settle.</h2>
+      <p>Culture. Community. Creation. I Got More Co. is where I build beyond the team kitchen — nutrition made for athletes, workshops, and a community of people building a life of freedom and impact.</p>
+      <a class="btn solid" href="https://www.instagram.com/igotmoreco/">Follow @igotmoreco</a>
+    </div>
+  </div>
+</section>
+
+<section id="recipes" class="band">
+  <div class="wrap">
+    <span class="label">Recipes</span>
+    <h2>What the pros eat. Cooked in your kitchen.</h2>
+    <div class="row3">
+      <img src="assets/ig/food-shrimp.jpg" alt="Shrimp recipe">
+      <img src="assets/ig/chef-toast.jpg" alt="Anthony in the kitchen">
+      <img src="assets/ig/hospitality-spread.jpg" alt="Visiting-team hospitality spread">
+    </div>
+    <p>New recipes weekly on Instagram. A full recipe library lives here soon.</p>
+    <a class="btn" href="https://www.instagram.com/anthonyjzamora/">Recipes on Instagram</a>
+    <span class="placeholder">[PLACEHOLDER — recipe page in the Squarespace phase]</span>
+  </div>
+</section>
 <section id="testimonials"><div class="wrap"><h2>Testimonials</h2></div></section>
 <section id="newsletter" class="band"><div class="wrap"><h2>Newsletter</h2></div></section>
 <section id="contact"><div class="wrap"><h2>Contact</h2></div></section>
