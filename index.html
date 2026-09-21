@@ -70,6 +70,21 @@ blockquote cite{display:block;font:600 12px var(--label);letter-spacing:.16em;te
 .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
 .row3 img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 
+/* testimonials, newsletter, contact */
+.cards.three{grid-template-columns:repeat(3,1fr)}
+blockquote.small{font-size:22px;border:0;padding:0;margin:0}
+blockquote.small .placeholder{display:inline;font-size:inherit}
+blockquote.small cite .placeholder{font-size:12px;font-style:normal}
+.narrow{max-width:640px;text-align:center}
+form.inline{display:flex;gap:12px;margin-top:24px}
+form.inline input{flex:1;min-width:0;padding:16px;border:1px solid var(--ink);background:var(--white);font:inherit}
+.grid2.top{align-items:start}
+form.stack{display:grid;gap:14px}
+form.stack label{display:block;font:600 12px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+form.stack input,form.stack select,form.stack textarea{width:100%;padding:14px;border:1px solid var(--ink);background:var(--white);font:inherit;border-radius:0}
+form.stack .btn{justify-self:start}
+.links a{font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none}
+
 /* footer */
 footer{background:var(--ink);color:var(--cream);padding:56px 0 32px}
 footer .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
@@ -203,9 +218,62 @@ footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
     <span class="placeholder">[PLACEHOLDER — recipe page in the Squarespace phase]</span>
   </div>
 </section>
-<section id="testimonials"><div class="wrap"><h2>Testimonials</h2></div></section>
-<section id="newsletter" class="band"><div class="wrap"><h2>Newsletter</h2></div></section>
-<section id="contact"><div class="wrap"><h2>Contact</h2></div></section>
+<section id="testimonials">
+  <div class="wrap">
+    <span class="label">What people say</span>
+    <h2>Trusted in the locker room.</h2>
+    <div class="cards three">
+      <article class="card">
+        <blockquote class="small"><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
+      </article>
+      <article class="card">
+        <blockquote class="small"><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
+      </article>
+      <article class="card">
+        <blockquote class="small"><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter" class="band">
+  <div class="wrap narrow">
+    <span class="label">Newsletter</span>
+    <h2>What the pros know. Weekly.</h2>
+    <p>One email a week: a recipe, a habit from the locker room, and something I learned this week. No fluff.</p>
+    <form onsubmit="return false" class="inline">
+      <input type="email" placeholder="you@email.com" aria-label="Email">
+      <button class="btn solid" type="submit">Subscribe</button>
+    </form>
+    <span class="placeholder">[PLACEHOLDER — connects to the Squarespace newsletter block]</span>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap grid2 top">
+    <div>
+      <span class="label">Contact</span>
+      <h2>Let's build your system.</h2>
+      <p>Tell me what you're training for, who you're feeding, or what event you're planning. I'll reply within two business days.</p>
+      <p class="links"><a href="https://www.instagram.com/anthonyjzamora/">Instagram</a> · <a href="https://www.linkedin.com/in/anthony-j-zamora-rd/">LinkedIn</a></p>
+    </div>
+    <form onsubmit="return false" class="stack">
+      <div><label for="f-name">Name</label><input id="f-name" type="text"></div>
+      <div><label for="f-email">Email</label><input id="f-email" type="email"></div>
+      <div><label for="f-interest">I'm interested in</label>
+        <select id="f-interest">
+          <option>1:1 Performance Nutrition</option>
+          <option>Team &amp; Organization Consulting</option>
+          <option>Speaking &amp; Workshops</option>
+          <option>Recipes &amp; Meal Plans</option>
+        </select>
+      </div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" rows="5"></textarea></div>
+      <button class="btn solid" type="submit">Send</button>
+      <span class="placeholder">[PLACEHOLDER — Squarespace form block]</span>
+    </form>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">
