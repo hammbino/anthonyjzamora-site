@@ -75,7 +75,8 @@ Sampled from @igotmoreco posts:
 | Cream | `#F6F1EC` | page background |
 | Sand | `#EAE2D9` | alternate section bands |
 | Ink | `#0B0A08` | text, buttons |
-| Gold-taupe | `#A8917A` | small-caps labels, thin rules, hover — the only accent |
+| Gold-taupe | `#A8917A` | thin rules, borders, button hover — decorative only (2.7:1 on cream, fails AA for text) |
+| Gold-taupe text | `#6E5946` | small-caps labels, captions, form labels, cites (5.9:1 on cream, 5.2:1 on sand) |
 
 - Headlines: elegant serif (Cormorant Garamond / Playfair Display — Squarespace has
   both). Labels: wide-tracked uppercase sans (Montserrat). Body: clean sans.
