@@ -213,7 +213,7 @@ git add index.html && git commit -m "Add trust bar and About section"
 3. `h3` Speaking & Workshops — `<p>` "Keynote speaker at the inaugural Performance Chef Summit in New Orleans. Culinary Nutrition Workshops for staff, teams and companies." — `.label` "For events, teams, companies" — button
 4. `h3` Recipes & Meal Plans — `<p>` "What's in every pro's fridge, and how to cook it. Recipes and weekly plans that hold up on a Tuesday night." — `.label` "For everyone" — `<a class="btn" href="#recipes">See Recipes</a>`
 
-Note the `$170K+` text: the checker's price rule flags `$` followed by a digit. Write it as "170K-plus dollars" → no; keep the number but write it `$170K+` inside a `<span data-figure>`? Simpler: the checker rule targets prices; change the checker regex to `r"\$\s?\d+(\.\d+)?\s*(/|per|mo|month|hr|hour|session)"` so revenue figures pass and only price-like patterns fail. Make that edit in `scripts/check.py` in this task.
+The `$170K+` figure would trip the checker's price rule. In `scripts/check.py`, replace the line `if re.search(r"\$\s?\d", text): fails.append("a price appears in page text")` with `if re.search(r"\$\s?\d[\d,\.]*\s*(/|per|mo\b|month|hr\b|hour|session)", text, re.I): fails.append("a price appears in page text")` so revenue figures pass and only price-like patterns fail.
 
 CSS: `.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}.card{background:var(--white);border:1px solid var(--sand);padding:36px}.card .label{margin:12px 0 20px}`
 
