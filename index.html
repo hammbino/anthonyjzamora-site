@@ -50,6 +50,16 @@ header .btn{padding:12px 20px}
 .hero .sub{font-size:19px;max-width:36em;color:var(--ink)}
 .hero img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 
+/* trust bar + about */
+.trust{padding:28px 0;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.trust .names{display:flex;flex-wrap:wrap;gap:8px 0;margin-top:10px;font-family:var(--serif);font-size:21px;font-weight:600}
+.trust .names span+span::before{content:"·";color:var(--gold);margin:0 16px}
+.trust .placeholder{margin-top:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.grid2 img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+blockquote{margin:28px 0;padding-left:20px;border-left:1px solid var(--gold);font-family:var(--serif);font-size:30px;line-height:1.2;font-style:italic}
+blockquote cite{display:block;font:600 12px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:10px;font-style:normal}
+
 /* footer */
 footer{background:var(--ink);color:var(--cream);padding:56px 0 32px}
 footer .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
@@ -95,7 +105,32 @@ footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
   </div>
 </section>
 
-<section id="about"><div class="wrap"><h2>About</h2></div></section>
+<div class="trust band">
+  <div class="wrap">
+    <span class="label">Worked with · Featured in</span>
+    <div class="names">
+      <span>Utah Jazz</span><span>Utah Hockey Club</span><span>St. Louis Rams</span><span>Smith Entertainment Group</span><span>Boston University</span><span>Deseret News</span><span>NBA.com</span>
+    </div>
+    <span class="placeholder">[PLACEHOLDER — logos once usage rights are confirmed]</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap grid2">
+    <div>
+      <img src="assets/ig/rams-sideline.jpg" alt="Anthony on the sideline">
+      <span class="placeholder">[PLACEHOLDER — photo from Anthony's folder]</span>
+    </div>
+    <div>
+      <span class="label">About</span>
+      <h2>From the Rams' kitchen to the Jazz's front office.</h2>
+      <p>I started as a team chef and performance-nutrition assistant with the St. Louis Rams. In 2018 the Utah Jazz hired me to run their kitchen; I went on to lead Nutrition, Culinary &amp; Hospitality for Smith Entertainment Group — the chefs and dietitians behind the Jazz and the Utah Hockey Club — and to design the kitchen and dining room for Utah's new NHL practice facility.</p>
+      <p>Players called my method <em>stealthy-healthy</em>: food that performs, that people actually want to eat. With rookies I ran cooking classes, grocery-store tours and summer visits to their homes. That's the work I do now — for athletes, teams, and anyone who refuses to settle.</p>
+      <blockquote>“You wouldn't put 85 octane into a Ferrari.”<cite>Anthony, to the Deseret News</cite></blockquote>
+      <a class="btn" href="#contact">Work With Me</a>
+    </div>
+  </div>
+</section>
 <section id="services" class="band"><div class="wrap"><h2>Services</h2></div></section>
 <section id="igotmore"><div class="wrap"><h2>I Got More Co.</h2></div></section>
 <section id="recipes" class="band"><div class="wrap"><h2>Recipes</h2></div></section>
