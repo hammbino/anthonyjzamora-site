@@ -91,8 +91,25 @@ footer .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:st
 footer nav{display:flex;gap:22px;flex-wrap:wrap}
 footer a{color:var(--cream);text-decoration:none;font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
 footer a:hover{color:var(--gold)}
+footer .wordmark{font-family:var(--serif);font-size:22px;letter-spacing:.02em;text-transform:none}
 footer .social{margin-top:18px}
 footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
+
+/* mobile */
+@media (max-width:800px){
+ .hero .wrap,.grid2,.cards,.cards.three,.row3,footer .wrap{grid-template-columns:1fr}
+ .hero{min-height:auto;padding-top:48px}
+ .hero .wrap>div:last-child{order:-1}
+ .hero img{aspect-ratio:4/3}
+ header nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);padding:16px var(--pad) 20px;flex-direction:column;gap:16px;border-bottom:1px solid var(--gold)}
+ header nav.open{display:flex}
+ .menu{display:inline-block}
+ header .btn{display:none}
+ form.inline{flex-direction:column}
+ blockquote{font-size:24px}
+ .trust .names{font-size:18px}
+ .trust .names span+span::before{margin:0 10px}
+}
 </style>
 </head>
 <body>
