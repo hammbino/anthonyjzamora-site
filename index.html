@@ -7,148 +7,213 @@
 <title>Anthony J. Zamora — Performance Nutrition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#F6F1EC;--sand:#EAE2D9;--ink:#0B0A08;--gold:#A8917A;--gold-text:#6E5946;--white:#FFFFFF;
- --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--label:'Montserrat',system-ui,sans-serif;
- --max:1100px;--pad:clamp(20px,5vw,64px)}
+:root{
+ --ink:#0B0A08;--cream:#F6F1EC;--amber:#E8B33C;--sand:#EAE2D9;--white:#FFFFFF;
+ --display:'Syncopate',system-ui,sans-serif;--sans:'Inter',system-ui,sans-serif;
+ --max:1160px;--pad:clamp(20px,5vw,64px);
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0 0 .4em}
-h1{font-size:clamp(38px,4.6vw,56px)}
-h2{font-size:clamp(34px,4.5vw,56px)}
-h3{font-size:28px}
-p{margin:0 0 1.1em}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;font-weight:700;line-height:1.08;margin:0 0 .5em;letter-spacing:.01em}
+h1{font-size:clamp(26px,4.7vw,64px);line-height:1.04}
+h2{font-size:clamp(24px,3.4vw,44px)}
+h3{font-size:clamp(15px,1.3vw,17px);letter-spacing:.04em;line-height:1.3}
+p{margin:0 0 1.1em;max-width:36em}
 a{color:inherit}
-.label{font-family:var(--label);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--gold-text);font-weight:600}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+img{display:block;max-width:100%}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-section{padding:clamp(64px,9vw,120px) 0;scroll-margin-top:90px}
-.band{background:var(--sand)}
-.btn{display:inline-block;font-family:var(--label);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:16px 28px;border:1px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;cursor:pointer;transition:.2s}
+section{scroll-margin-top:80px}
+.btn{display:inline-block;font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:17px 30px;border:1px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
 .btn:hover{background:var(--ink);color:var(--cream)}
 .btn.solid{background:var(--ink);color:var(--cream)}
-.btn.solid:hover{background:var(--gold);border-color:var(--gold)}
-.rule{border:0;border-top:1px solid var(--gold);width:64px;margin:20px 0}
-.placeholder{display:block;color:var(--gold-text);font-style:italic;font-size:13px;margin-top:10px}
-.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.btn.solid:hover{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.btn.amber{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.btn.amber:hover{background:var(--cream);border-color:var(--cream)}
+.btn.ghost{border-color:var(--cream);color:var(--cream)}
+.btn.ghost:hover{background:var(--cream);color:var(--ink)}
+.placeholder{display:block;color:var(--amber);font-style:italic;font-size:13px;margin-top:10px}
+.dark .placeholder{color:var(--amber)}
+.light .placeholder{color:#7A6350}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.dark{background:var(--ink);color:var(--cream)}
+.light{background:var(--cream)}
+.dark p{color:var(--cream)}
 
-/* header */
-header{position:sticky;top:0;z-index:10;background:var(--cream);border-bottom:1px solid var(--gold)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
-.wordmark{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.02em;text-decoration:none}
-header nav{display:flex;gap:28px}
-header nav a{font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none;color:var(--ink)}
-header nav a:hover{color:var(--gold-text)}
-header .btn{padding:12px 20px}
-.menu{display:none;background:none;border:1px solid var(--ink);padding:8px 12px;font:600 11px var(--label);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
+/* header: transparent over the hero, ink once scrolled */
+header{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .3s;color:var(--cream)}
+header.solid{background:var(--ink)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.wordmark{font-family:var(--display);font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--cream)}
+header nav{display:flex;gap:30px}
+header nav a{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--cream);padding-bottom:4px;border-bottom:1px solid transparent}
+header nav a:hover{border-bottom-color:var(--amber)}
+header .btn{padding:12px 20px;font-size:12px}
+.menu{display:none;background:none;border:1px solid var(--cream);color:var(--cream);padding:8px 12px;font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
 
-/* hero */
-.hero{min-height:0;padding:clamp(24px,3.5vw,40px) 0 clamp(48px,6vw,72px);display:flex;align-items:center}
-.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(32px,6vw,80px);align-items:center;width:100%}
-.hero h1{margin:12px 0 16px}
-.hero .sub{font-size:18px;max-width:34em;color:var(--ink)}
-.hero img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+/* hero: the reel caption */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden;isolation:isolate}
+.hero .bg{position:absolute;inset:0;z-index:-2;background:url(assets/ig/portrait-redbull.jpg) center 20%/cover no-repeat;transform:scale(1.02)}
+.hero .shade{position:absolute;inset:0;z-index:-1;background:
+ linear-gradient(90deg,rgba(11,10,8,.88) 0%,rgba(11,10,8,.55) 45%,rgba(11,10,8,.25) 100%),
+ linear-gradient(180deg,rgba(11,10,8,.35) 0%,rgba(11,10,8,0) 30%,rgba(11,10,8,.85) 100%)}
+.hero .wrap{width:100%;padding-top:140px;padding-bottom:clamp(48px,7vw,88px)}
+.hero .kicker{font-size:15px;font-weight:500;letter-spacing:.02em;max-width:34em;margin:0 0 22px;color:var(--cream);opacity:.92}
+.hero h1{max-width:none;margin-bottom:26px}
+.hero h1 .accent{color:var(--amber)}
+.hero h1 .nowrap{white-space:nowrap}
+@media (max-width:520px){.hero h1 .nowrap{white-space:normal}}
+.hero .sub{font-size:17px;max-width:32em;margin-bottom:6px}
+.hero .actions{margin-top:22px}
+.hero .credit{position:absolute;right:var(--pad);bottom:18px;font-size:12px;color:var(--amber);font-style:italic}
+/* one orchestrated reveal on load */
+.hero .kicker,.hero h1,.hero .sub,.hero .actions{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1{animation-delay:.15s}.hero .sub{animation-delay:.3s}.hero .actions{animation-delay:.42s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.hero .kicker,.hero h1,.hero .sub,.hero .actions{animation:none;opacity:1;transform:none}}
 
-/* trust bar + about */
-.trust{padding:28px 0;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
-.trust .names{display:flex;flex-wrap:wrap;gap:8px 0;margin-top:10px;font-family:var(--serif);font-size:21px;font-weight:600}
-.trust .names span+span::before{content:"·";color:var(--gold);margin:0 16px}
-.trust .placeholder{margin-top:6px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
-.grid2 img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-blockquote{margin:28px 0;padding-left:20px;border-left:1px solid var(--gold);font-family:var(--serif);font-size:30px;line-height:1.2;font-style:italic}
-blockquote cite{display:block;font:600 12px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin-top:10px;font-style:normal}
+/* trust strip */
+.trust{border-top:1px solid rgba(246,241,236,.14);border-bottom:1px solid rgba(246,241,236,.14)}
+.trust .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 0;padding-top:20px;padding-bottom:20px}
+.trust .lead{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--amber);margin-right:28px}
+.trust .names{display:flex;flex-wrap:wrap;gap:8px 0;font-family:var(--display);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.trust .names span{padding:0 22px;border-left:1px solid rgba(246,241,236,.25)}
+.trust .names span:first-child{padding-left:0;border-left:0}
+.trust .placeholder{width:100%;margin-top:6px}
 
-/* services, igm, recipes */
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
-.card{background:var(--white);border:1px solid var(--sand);padding:36px;display:flex;flex-direction:column;align-items:flex-start}
-.card p{flex:1}
-.card .label{margin:8px 0 20px}
-#igotmore .logo img{width:100%;max-width:420px;aspect-ratio:auto;margin:0 auto}
+/* about: the "hi, I'm" band + photo strip that straddles the edge */
+#about{padding:clamp(72px,9vw,128px) 0 0}
+#about .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
+#about h2{font-size:clamp(30px,4.6vw,60px);line-height:1.02;margin-bottom:24px}
+#about .rule{border:0;border-top:1px solid var(--amber);width:100%;max-width:420px;margin:0 0 28px}
+#about .story p:first-child{font-weight:600}
+#about blockquote{margin:30px 0 0;padding:0;font-size:clamp(22px,2.2vw,28px);line-height:1.3;font-style:italic;font-weight:400;max-width:22em}
+#about blockquote cite{display:block;font-style:normal;font-size:13px;color:var(--amber);margin-top:10px;font-weight:500}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);margin-top:clamp(48px,6vw,80px);margin-bottom:calc(-1 * clamp(120px,16vw,220px));position:relative;z-index:2}
+.strip figure{margin:0;opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.strip figure:nth-child(2){transition-delay:.12s}.strip figure:nth-child(3){transition-delay:.24s}
+.strip.in figure{opacity:1;transform:none}
+.strip img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.strip figcaption{font-size:13px;color:#7A6350;font-style:italic;margin-top:8px}
+.strip figcaption .placeholder{color:#7A6350}
+@media (prefers-reduced-motion:reduce){.strip figure{opacity:1;transform:none;transition:none}}
+
+/* services: photo cards, title on a label box overlapping the photo */
+#services{padding:calc(clamp(120px,16vw,220px) + clamp(56px,7vw,96px)) 0 clamp(72px,9vw,128px)}
+#services h2{text-align:center;margin-bottom:clamp(36px,5vw,64px)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.card{text-align:center;display:flex;flex-direction:column;align-items:center}
+.card .photo{width:100%;aspect-ratio:4/5;object-fit:cover}
+.card h3{background:var(--white);margin:-34px 18px 18px;padding:18px 20px 8px;position:relative;width:calc(100% - 36px)}
+.card p{font-size:16px;margin-bottom:22px}
+.card .who{font-size:14px;color:#5A4A3A;margin:-10px 0 20px}
+.card .btn{margin-top:auto}
+
+/* i got more co.: the one cream chapter */
+#igotmore{background:var(--white);padding:clamp(72px,9vw,128px) 0}
+#igotmore .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
 #igotmore .logo{text-align:center}
-.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
-.row3 img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+#igotmore .logo img{width:100%;max-width:400px;margin:0 auto}
+#igotmore h2{font-size:clamp(22px,2.8vw,36px)}
 
-/* testimonials, newsletter, contact */
-.cards.three{grid-template-columns:repeat(3,1fr)}
-blockquote.small{font-size:22px;border:0;padding:0;margin:0}
-blockquote.small .placeholder{display:inline;font-size:inherit}
-blockquote.small cite .placeholder{font-size:12px;font-style:normal}
-.narrow{max-width:640px;text-align:center}
-form.inline{display:flex;gap:12px;margin-top:24px}
-form.inline input{flex:1;min-width:0;padding:16px;border:1px solid var(--ink);background:var(--white);font:inherit}
-.grid2.top{align-items:start}
-form.stack{display:grid;gap:14px}
-form.stack label{display:block;font:600 12px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin-bottom:6px}
+/* recipes */
+#recipes{padding:clamp(72px,9vw,128px) 0}
+#recipes .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);margin:32px 0}
+#recipes .row3 img{width:100%;aspect-ratio:4/5;object-fit:cover}
+
+/* testimonials */
+#testimonials{background:var(--sand);padding:clamp(72px,9vw,128px) 0}
+#testimonials h2{text-align:center;margin-bottom:clamp(36px,5vw,56px)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.quotes blockquote{margin:0;padding-left:22px;border-left:2px solid var(--amber);font-size:18px;line-height:1.5;font-style:italic}
+.quotes cite{display:block;font-style:normal;font-size:13px;margin-top:14px;font-weight:500}
+
+/* newsletter: ink over food */
+#newsletter{position:relative;color:var(--cream);padding:clamp(88px,11vw,150px) 0;text-align:center;isolation:isolate}
+#newsletter .bg{position:absolute;inset:0;z-index:-2;background:url(assets/ig/food-shrimp.jpg) center/cover no-repeat}
+#newsletter .shade{position:absolute;inset:0;z-index:-1;background:rgba(11,10,8,.86)}
+#newsletter .wrap{max-width:720px}
+#newsletter p{margin:0 auto 1.1em;color:var(--cream)}
+form.inline{display:flex;gap:0;margin:28px auto 0;max-width:560px}
+form.inline input{flex:1;min-width:0;padding:17px 18px;border:1px solid var(--cream);background:var(--white);color:var(--ink);font:inherit}
+form.inline .btn{border-left:0}
+
+/* contact */
+#contact{padding:clamp(72px,9vw,128px) 0}
+#contact .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:start}
+#contact .links a{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;margin-right:22px}
+form.stack{display:grid;gap:16px}
+form.stack label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
 form.stack input,form.stack select,form.stack textarea{width:100%;padding:14px;border:1px solid var(--ink);background:var(--white);font:inherit;border-radius:0}
 form.stack .btn{justify-self:start}
-.links a{font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none}
 
 /* footer */
-footer{background:var(--ink);color:var(--cream);padding:56px 0 32px}
+footer{padding:56px 0 32px}
 footer .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
 footer nav{display:flex;gap:22px;flex-wrap:wrap}
-footer a{color:var(--cream);text-decoration:none;font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
-footer a:hover{color:var(--gold)}
-footer .wordmark{font-family:var(--serif);font-size:22px;letter-spacing:.02em;text-transform:none}
+footer a{color:var(--cream);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+footer a:hover{color:var(--amber)}
 footer .social{margin-top:18px}
-footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
+footer .copy{grid-column:1/-1;font-size:13px;color:var(--amber);margin-top:24px}
 
 /* mobile */
-@media (max-width:800px){
- .hero .wrap,.grid2,.cards,.cards.three,.row3,footer .wrap{grid-template-columns:1fr}
- .hero{min-height:auto;padding-top:48px}
- .hero img{aspect-ratio:4/3}
- header nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);padding:16px var(--pad) 20px;flex-direction:column;gap:16px;border-bottom:1px solid var(--gold)}
+@media (max-width:860px){
+ #about .grid,#igotmore .grid,#contact .grid,.cards,.quotes,#recipes .row3,footer .wrap{grid-template-columns:minmax(0,1fr)}
+ header nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--ink);padding:16px var(--pad) 22px;flex-direction:column;gap:16px}
  header nav.open{display:flex}
+ header.solid,header.open{background:var(--ink)}
  .menu{display:inline-block}
  header .btn{display:none}
- form.inline{flex-direction:column}
- blockquote{font-size:24px}
- .trust .names{font-size:18px}
- .trust .names span+span::before{margin:0 10px}
+ .hero .bg{background-position:65% 20%}
+ .hero .wrap{padding-top:110px}
+ .strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:6px;margin-bottom:calc(-1 * clamp(80px,22vw,140px))}
+ .strip figure{flex:0 0 72%;scroll-snap-align:start}
+ #services{padding-top:calc(clamp(80px,22vw,140px) + 56px)}
+ .trust .lead{width:100%;margin:0 0 4px}
+ form.inline{flex-direction:column;gap:12px}
+ form.inline .btn{border-left:1px solid var(--amber)}
 }
 </style>
 </head>
 <body>
 
-<header>
+<header id="hdr">
   <div class="wrap">
     <a class="wordmark" href="#top">Anthony J. Zamora</a>
-    <nav>
+    <nav id="nav">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#igotmore">I Got More Co.</a>
       <a href="#recipes">Recipes</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn solid" href="#contact">Work With Me</a>
-    <button class="menu" aria-label="Menu">Menu</button>
+    <a class="btn amber" href="#contact">Work with me</a>
+    <button class="menu" aria-label="Menu" aria-expanded="false">Menu</button>
   </div>
 </header>
 
 <section id="top" class="hero">
+  <div class="bg" role="img" aria-label="Anthony J. Zamora"></div>
+  <div class="shade"></div>
   <div class="wrap">
-    <div>
-      <span class="label">Registered Dietitian · Chef · 12 Years With the Pros</span>
-      <h1>Twelve years fueling NFL, NBA &amp; NHL athletes. Now I'll teach you what the pros know.</h1>
-      <p class="sub">I led nutrition, culinary &amp; hospitality for the Utah Jazz and Utah Hockey Club, and cooked for the St. Louis Rams. I build the food systems behind elite performance — and now I build them for you.</p>
-      <div class="actions">
-        <a class="btn solid" href="#contact">Work With Me</a>
-        <a class="btn" href="#services">See How I Work</a>
-      </div>
-    </div>
-    <div>
-      <img src="assets/ig/portrait-redbull.jpg" alt="Anthony J. Zamora">
-      <span class="placeholder">[PLACEHOLDER — hero photo from Anthony's folder]</span>
+    <p class="kicker">Registered dietitian and chef. Twelve seasons feeding NFL, NBA and NHL teams.</p>
+    <h1>Twelve years<br><span class="nowrap">fueling <span class="accent">the pros.</span></span><br>Now you.</h1>
+    <p class="sub">I built the food systems behind elite performance for the Utah Jazz, the Utah Hockey Club and the St. Louis Rams. Now I build them for athletes, teams and people who refuse to settle.</p>
+    <div class="actions">
+      <a class="btn amber" href="#contact">Work with me</a>
+      <a class="btn ghost" href="#services">See how I work</a>
     </div>
   </div>
+  <span class="credit">[PLACEHOLDER — hero photo from Anthony's folder]</span>
 </section>
 
-<div class="trust band">
+<div class="trust dark">
   <div class="wrap">
-    <span class="label">Worked with · Featured in</span>
+    <span class="lead">Worked with and featured in</span>
     <div class="names">
       <span>Utah Jazz</span><span>Utah Hockey Club</span><span>St. Louis Rams</span><span>Smith Entertainment Group</span><span>Boston University</span><span>Deseret News</span><span>NBA.com</span>
     </div>
@@ -156,63 +221,65 @@ footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
   </div>
 </div>
 
-<section id="about">
-  <div class="wrap grid2">
-    <div>
-      <img src="assets/ig/rams-sideline.jpg" alt="Anthony on the sideline">
-      <span class="placeholder">[PLACEHOLDER — photo from Anthony's folder]</span>
+<section id="about" class="dark">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h2>Hi, I'm<br>Anthony<br>Zamora.</h2>
+        <hr class="rule">
+        <blockquote>“You wouldn't put 85 octane into a Ferrari.”<cite>Anthony, to the Deseret News</cite></blockquote>
+      </div>
+      <div class="story">
+        <p>I'm a registered dietitian and a trained chef, and for twelve years my job was feeding professional athletes — first as team chef and performance-nutrition assistant for the St. Louis Rams, then running the kitchen for the Utah Jazz from 2018.</p>
+        <p>That grew into leading Nutrition, Culinary &amp; Hospitality for Smith Entertainment Group: the chefs and dietitians behind the Jazz and the Utah Hockey Club, and the design of the kitchen and dining room for Utah's new NHL practice facility.</p>
+        <p>Players called my method <em>stealthy-healthy</em> — food that performs and that people actually want to eat. With rookies I ran cooking classes, grocery-store tours and summer visits to their homes. That's the work I do now, for anyone who refuses to settle.</p>
+        <a class="btn ghost" href="#contact">Work with me</a>
+      </div>
     </div>
-    <div>
-      <span class="label">About</span>
-      <h2>From the Rams' kitchen to the Jazz's front office.</h2>
-      <p>I started as a team chef and performance-nutrition assistant with the St. Louis Rams. In 2018 the Utah Jazz hired me to run their kitchen; I went on to lead Nutrition, Culinary &amp; Hospitality for Smith Entertainment Group — the chefs and dietitians behind the Jazz and the Utah Hockey Club — and to design the kitchen and dining room for Utah's new NHL practice facility.</p>
-      <p>Players called my method <em>stealthy-healthy</em>: food that performs, that people actually want to eat. With rookies I ran cooking classes, grocery-store tours and summer visits to their homes. That's the work I do now — for athletes, teams, and anyone who refuses to settle.</p>
-      <blockquote>“You wouldn't put 85 octane into a Ferrari.”<cite>Anthony, to the Deseret News</cite></blockquote>
-      <a class="btn" href="#contact">Work With Me</a>
+    <div class="strip" id="strip">
+      <figure><img src="assets/ig/keynote-performance-chef-summit.jpg" alt="Anthony giving the keynote at the Performance Chef Summit"><figcaption>Keynote, Performance Chef Summit, New Orleans</figcaption></figure>
+      <figure><img src="assets/ig/chef-toast.jpg" alt="Anthony in chef's apron raising a glass"><figcaption>On the line</figcaption></figure>
+      <figure><img src="assets/ig/airport-travel.jpg" alt="Anthony at the airport with team luggage"><figcaption>Road trip, team in tow <span class="placeholder">[PLACEHOLDER — photos from Anthony's folder]</span></figcaption></figure>
     </div>
   </div>
 </section>
-<section id="services" class="band">
+
+<section id="services" class="light">
   <div class="wrap">
-    <span class="label">Services</span>
-    <h2>The same system I built for the pros.<br>Sized for you.</h2>
+    <h2>How I work</h2>
     <div class="cards">
       <article class="card">
+        <img class="photo" src="assets/ig/rams-sideline.jpg" alt="">
         <h3>1:1 Performance Nutrition</h3>
         <p>Fuel, recovery, body composition and travel eating — a plan built around your season, your schedule and your kitchen.</p>
-        <span class="label">For athletes and driven people</span>
-        <a class="btn" href="#contact">Inquire</a>
+        <span class="who">For athletes and driven people</span>
+        <a class="btn solid" href="#contact">Inquire</a>
       </article>
       <article class="card">
+        <img class="photo" src="assets/ig/hospitality-spread.jpg" alt="">
         <h3>Team &amp; Organization Consulting</h3>
-        <p>Menus, staffing, kitchen design and player education. I launched a visiting-team hospitality program that generated $170K+ in its first year, and designed the kitchen for an NHL practice facility.</p>
-        <span class="label">For pro &amp; college teams, facilities</span>
-        <a class="btn" href="#contact">Inquire</a>
+        <p>Menus, staffing, kitchen design and player education. I launched a visiting-team hospitality program that generated $170K+ in its first year and designed the kitchen for an NHL practice facility.</p>
+        <span class="who">For pro and college teams, facilities</span>
+        <a class="btn solid" href="#contact">Inquire</a>
       </article>
       <article class="card">
+        <img class="photo" src="assets/ig/keynote-performance-chef-summit.jpg" alt="">
         <h3>Speaking &amp; Workshops</h3>
         <p>Keynote speaker at the inaugural Performance Chef Summit in New Orleans. Culinary Nutrition Workshops for staff, teams and companies.</p>
-        <span class="label">For events, teams, companies</span>
-        <a class="btn" href="#contact">Inquire</a>
-      </article>
-      <article class="card">
-        <h3>Recipes &amp; Meal Plans</h3>
-        <p>What's in every pro's fridge, and how to cook it. Recipes and weekly plans that hold up on a Tuesday night.</p>
-        <span class="label">For everyone</span>
-        <a class="btn" href="#recipes">See Recipes</a>
+        <span class="who">For events, teams and companies</span>
+        <a class="btn solid" href="#contact">Inquire</a>
       </article>
     </div>
   </div>
 </section>
 
-<section id="igotmore">
-  <div class="wrap grid2">
+<section id="igotmore" class="light">
+  <div class="wrap grid">
     <div class="logo">
       <img src="assets/brand/igotmore-script-tagline.jpg" alt="I Got More Co.">
       <span class="placeholder">[PLACEHOLDER — real logo files from Anthony]</span>
     </div>
     <div>
-      <span class="label">I Got More Co.</span>
       <h2>Built for those who don't settle.</h2>
       <p>Culture. Community. Creation. I Got More Co. is where I build beyond the team kitchen — nutrition made for athletes, workshops, and a community of people building a life of freedom and impact.</p>
       <a class="btn solid" href="https://www.instagram.com/igotmoreco/">Follow @igotmoreco</a>
@@ -220,58 +287,51 @@ footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
   </div>
 </section>
 
-<section id="recipes" class="band">
+<section id="recipes" class="light">
   <div class="wrap">
-    <span class="label">Recipes</span>
-    <h2>What the pros eat. Cooked in your kitchen.</h2>
+    <h2>What the pros eat.<br>Cooked in your kitchen.</h2>
     <div class="row3">
       <img src="assets/ig/food-shrimp.jpg" alt="Shrimp recipe">
       <img src="assets/ig/chef-toast.jpg" alt="Anthony in the kitchen">
       <img src="assets/ig/hospitality-spread.jpg" alt="Visiting-team hospitality spread">
     </div>
-    <p>New recipes weekly on Instagram. A full recipe library lives here soon.</p>
-    <a class="btn" href="https://www.instagram.com/anthonyjzamora/">Recipes on Instagram</a>
+    <p>New recipes every week on Instagram. A full recipe library and weekly meal plans live here soon.</p>
+    <a class="btn solid" href="https://www.instagram.com/anthonyjzamora/">Recipes on Instagram</a>
     <span class="placeholder">[PLACEHOLDER — recipe page in the Squarespace phase]</span>
   </div>
 </section>
-<section id="testimonials">
+
+<section id="testimonials" class="light">
   <div class="wrap">
-    <span class="label">What people say</span>
-    <h2>Trusted in the locker room.</h2>
-    <div class="cards three">
-      <article class="card">
-        <blockquote class="small"><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
-      </article>
-      <article class="card">
-        <blockquote class="small"><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
-      </article>
-      <article class="card">
-        <blockquote class="small"><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
-      </article>
+    <h2>Trusted in the locker room</h2>
+    <div class="quotes">
+      <blockquote><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
+      <blockquote><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
+      <blockquote><span class="placeholder">[PLACEHOLDER — athlete or team quote, Anthony to supply]</span><cite><span class="placeholder">[PLACEHOLDER — name, team]</span></cite></blockquote>
     </div>
   </div>
 </section>
 
-<section id="newsletter" class="band">
-  <div class="wrap narrow">
-    <span class="label">Newsletter</span>
+<section id="newsletter" class="dark">
+  <div class="bg"></div>
+  <div class="shade"></div>
+  <div class="wrap">
     <h2>What the pros know. Weekly.</h2>
     <p>One email a week: a recipe, a habit from the locker room, and something I learned this week. No fluff.</p>
     <form onsubmit="return false" class="inline">
       <input type="email" placeholder="you@email.com" aria-label="Email">
-      <button class="btn solid" type="submit">Subscribe</button>
+      <button class="btn amber" type="submit">Subscribe</button>
     </form>
     <span class="placeholder">[PLACEHOLDER — connects to the Squarespace newsletter block]</span>
   </div>
 </section>
 
-<section id="contact">
-  <div class="wrap grid2 top">
+<section id="contact" class="light">
+  <div class="wrap grid">
     <div>
-      <span class="label">Contact</span>
       <h2>Let's build your system.</h2>
-      <p>Tell me what you're training for, who you're feeding, or what event you're planning. I'll reply within two business days.</p>
-      <p class="links"><a href="https://www.instagram.com/anthonyjzamora/">Instagram</a> · <a href="https://www.linkedin.com/in/anthony-j-zamora-rd/">LinkedIn</a></p>
+      <p>Tell me what you're training for, who you're feeding, or what event you're planning. I reply within two business days.</p>
+      <p class="links"><a href="https://www.instagram.com/anthonyjzamora/">Instagram</a><a href="https://www.linkedin.com/in/anthony-j-zamora-rd/">LinkedIn</a></p>
     </div>
     <form onsubmit="return false" class="stack">
       <div><label for="f-name">Name</label><input id="f-name" type="text"></div>
@@ -285,19 +345,19 @@ footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
         </select>
       </div>
       <div><label for="f-msg">Message</label><textarea id="f-msg" rows="5"></textarea></div>
-      <button class="btn solid" type="submit">Send</button>
+      <button class="btn solid" type="submit">Send message</button>
       <span class="placeholder">[PLACEHOLDER — Squarespace form block]</span>
     </form>
   </div>
 </section>
 
-<footer>
+<footer class="dark">
   <div class="wrap">
     <div>
       <a class="wordmark" href="#top">Anthony J. Zamora</a>
       <div class="social">
-        <a href="https://www.instagram.com/anthonyjzamora/">Instagram</a> &nbsp;·&nbsp;
-        <a href="https://www.instagram.com/igotmoreco/">@igotmoreco</a> &nbsp;·&nbsp;
+        <a href="https://www.instagram.com/anthonyjzamora/">Instagram</a> &nbsp;&nbsp;
+        <a href="https://www.instagram.com/igotmoreco/">@igotmoreco</a> &nbsp;&nbsp;
         <a href="https://www.linkedin.com/in/anthony-j-zamora-rd/">LinkedIn</a>
       </div>
     </div>
@@ -308,12 +368,22 @@ footer .copy{grid-column:1/-1;font-size:13px;color:var(--gold);margin-top:24px}
       <a href="#recipes">Recipes</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="copy">© 2026 Anthony J. Zamora, RD · Prototype for review — not the live site.</div>
+    <div class="copy">© 2026 Anthony J. Zamora, RD. Prototype for review, not the live site.</div>
   </div>
 </footer>
 
 <script>
-document.querySelector('.menu').onclick=()=>document.querySelector('header nav').classList.toggle('open');
+(function(){
+  var hdr=document.getElementById('hdr'),nav=document.getElementById('nav'),btn=document.querySelector('.menu');
+  function onScroll(){hdr.classList.toggle('solid',window.scrollY>40)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  btn.onclick=function(){var open=nav.classList.toggle('open');hdr.classList.toggle('open',open);btn.setAttribute('aria-expanded',open)};
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');hdr.classList.remove('open')}});
+  var strip=document.getElementById('strip');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es,o){es.forEach(function(en){if(en.isIntersecting){strip.classList.add('in');o.disconnect()}})},{threshold:.2}).observe(strip);
+  }else{strip.classList.add('in')}
+})();
 </script>
 </body>
 </html>

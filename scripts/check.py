@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 HTML = ROOT / "index.html"
 REQUIRED_IDS = ["about", "services", "igotmore", "recipes", "testimonials", "newsletter", "contact"]
-ALLOWED_HEX = {"#f6f1ec", "#eae2d9", "#0b0a08", "#a8917a", "#6e5946", "#ffffff", "#fff", "#000", "#000000"}
+ALLOWED_HEX = {"#f6f1ec", "#eae2d9", "#0b0a08", "#e8b33c", "#7a6350", "#5a4a3a", "#ffffff", "#fff", "#000", "#000000"}
 
 class P(HTMLParser):
     def __init__(s):

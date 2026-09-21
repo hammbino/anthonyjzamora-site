@@ -66,26 +66,36 @@ with-pros story because nobody else in his market has it.
 Subpages (About, Services, Contact) are anchor sections in the prototype; real
 pages in Squarespace.
 
-## 4. Visual direction (matches I Got More Co. brand)
+## 4. Visual direction (revised 2026-09-21: Anthony's Instagram, structured like christinaychu.com)
 
-Sampled from @igotmoreco posts:
+Jeffrey's direction after the first prototype: lean toward christinaychu.com's
+polish, and toward Anthony's own Instagram (dark sideline/kitchen shots, bold
+white-and-amber reel captions) rather than I Got More Co.'s cream posts —
+Anthony is the product; IGM is a chapter.
 
 | Token | Hex | Use |
 |---|---|---|
-| Cream | `#F6F1EC` | page background |
-| Sand | `#EAE2D9` | alternate section bands |
-| Ink | `#0B0A08` | text, buttons |
-| Gold-taupe | `#A8917A` | thin rules, borders, button hover — decorative only (2.7:1 on cream, fails AA for text) |
-| Gold-taupe text | `#6E5946` | small-caps labels, captions, form labels, cites (5.9:1 on cream, 5.2:1 on sand) |
+| Ink | `#0B0A08` | dominant: hero, trust strip, About band, newsletter, footer |
+| Off-white | `#F6F1EC` | light sections |
+| Amber | `#E8B33C` | the one accent: hero accent words, primary buttons, rules, captions on dark (10:1 on ink) |
+| Sand | `#EAE2D9` | testimonials band |
+| White | `#FFFFFF` | service-card label boxes, IGM section, form fields |
+| Brown text | `#7A6350` / `#5A4A3A` | placeholder/caption text on light backgrounds (5:1+) |
 
-- Headlines: elegant serif (Cormorant Garamond / Playfair Display — Squarespace has
-  both). Labels: wide-tracked uppercase sans (Montserrat). Body: clean sans.
-- The "I Got More" script logotype is used as an image, never imitated in type.
-- Tone: "private chef to the pros" — quiet, premium, editorial. Photos get room;
-  minimal overlay text.
-- No green, no neon, no stock photography. Empty slots stay as labeled placeholders.
-- Layout: ~1100px content column, generous whitespace, cream/white/sand rhythm.
-  Mobile stacks to one column; nav collapses.
+- Display: **Syncopate 700**, uppercase (closest Google/Squarespace match to
+  Christina's Modena Sans and to his reel-caption type). Body: **Inter**.
+- Structure borrowed from christinaychu.com: full-viewport dark photo hero with
+  the headline as a caption and one accent phrase ("the pros."); transparent
+  header that turns ink on scroll; ink "Hi, I'm Anthony Zamora." band; a
+  three-photo strip that straddles the ink→cream edge; three photo service
+  cards with the title on a white label box overlapping the photo; sand
+  testimonials. Newsletter is an ink band over a darkened food photo.
+- Motion, deliberately limited: one staggered reveal of the hero on load, and
+  the photo strip rising once into view. Both respect prefers-reduced-motion.
+  (Squarespace 7.1's built-in section animations cover this in the rebuild.)
+- No section eyebrow labels; headlines carry each section.
+- Photos are IG screenshot captures and are soft at full-bleed; the hero and
+  strip are the first places Anthony's real photos should go.
 
 ## 5. Content sources and placeholders
 
